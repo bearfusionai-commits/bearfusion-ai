@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  background-image: 
+    radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 100%);
+  min-height: 100vh;
+}
+
+/* Chat Container styling */
+.chat-window {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Input Box Styling */
+input {
+  background: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #0070f3 !important;
+  box-shadow: 0 0 10px rgba(0, 112, 243, 0.2);
+}
+
+/* AI Message styling */
+.ai-message {
+  background: #161616;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 4px solid #0070f3;
+}
+
+/* User Message styling */
+.user-message {
+  color: #888;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* The Logo Header */
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
