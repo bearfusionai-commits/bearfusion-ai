@@ -32,8 +32,9 @@ export async function POST(req: Request) {
       stream: true,
       messages: [
         {
-          role: 'system',
-          content: `You are BearFusion PRO, a specialized Home Services Assistant for Eastbourne.
+        
+         role: 'system',
+          content: `You are BearFusion PRO, a specialized Home Services Assistant for UK.
           
           YOUR PRICE LIST:
           - Emergency Leak: £120
