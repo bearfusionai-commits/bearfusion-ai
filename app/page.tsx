@@ -5,8 +5,8 @@ export default function Home() {
     <main style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#000' }}>
       
       <img 
-        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.35, zIndex: 0 }} 
+        src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop" 
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3, zIndex: 0 }} 
       />
 
       <div style={{ zIndex: 10, textAlign: 'center', marginBottom: '30px', width: '100%', maxWidth: '900px' }}>
@@ -14,7 +14,7 @@ export default function Home() {
           BEARFUSION <span style={{ color: '#3b82f6' }}>AI</span>
         </h1>
         <p style={{ color: '#93c5fd', fontSize: '0.9rem', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: 'bold' }}>
-          24/7 National Emergency Dispatch • UK Wide
+          National Trade & Home Service Network • UK Wide
         </p>
       </div>
       
@@ -22,10 +22,10 @@ export default function Home() {
         <Chat />
       </div>
 
-      <div style={{ zIndex: 10, marginTop: '25px', color: '#94a3b8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'flex', gap: '15px', alignItems: 'center' }}>
-        <span style={{ color: '#22c55e' }}>● SYSTEM LIVE</span>
+      <div style={{ zIndex: 10, marginTop: '25px', color: '#94a3b8', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '15px', alignItems: 'center' }}>
+        <span style={{ color: '#22c55e' }}>● NETWORK ACTIVE</span>
         <span>|</span>
-        <span>PLUMBING • ELECTRICAL • HEATING</span>
+        <span>PLUMBING • ELECTRICAL • RENEWABLES • HEATING</span>
       </div>
     </main>
   );
