@@ -2,37 +2,38 @@ import { Chat } from "@/components/chat";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-center p-4">
+    <main style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#000' }}>
       
-      {/* BACKGROUND IMAGE - simplified for ASUS/Chrome */}
-      <div 
-        className="absolute inset-0 z-0"
+      {/* THE IMAGE - Forced with Old School Style */}
+      <img 
+        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" 
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundColor: '#0f172a',
-        }}
-      >
-        {/* This darkens the image so you can read the text */}
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          objectFit: 'cover', 
+          opacity: 0.4,
+          zIndex: 0 
+        }} 
+      />
 
-      <div className="z-10 w-full max-w-4xl text-center mb-8">
-        <h1 className="text-5xl font-black tracking-tighter uppercase italic text-white">
-          BearFusion <span className="text-blue-500 not-italic">v1.0</span>
+      {/* THE CONTENT */}
+      <div style={{ zIndex: 10, textAlign: 'center', marginBottom: '20px', width: '100%', maxWidth: '900px' }}>
+        <h1 style={{ color: 'white', fontSize: '3rem', fontWeight: '900', textTransform: 'uppercase', margin: 0 }}>
+          BearFusion <span style={{ color: '#3b82f6' }}>v1.0</span>
         </h1>
-        <p className="text-blue-200/60 font-mono text-xs mt-3 tracking-widest uppercase">
+        <p style={{ color: '#93c5fd', fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase' }}>
           Enterprise Home Service Intelligence
         </p>
       </div>
       
-      <div className="flex flex-col w-full max-w-4xl h-[70vh] border border-white/20 rounded-[2.5rem] shadow-2xl bg-slate-900/80 backdrop-blur-md p-6 relative overflow-hidden z-10">
+      <div style={{ zIndex: 10, width: '100%', maxWidth: '900px', height: '70vh', backgroundColor: 'rgba(15, 23, 42, 0.8)', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)', padding: '20px', backdropFilter: 'blur(10px)', overflow: 'hidden' }}>
         <Chat />
       </div>
 
-      <div className="z-10 mt-8 text-slate-400 text-[10px] font-mono tracking-widest uppercase flex items-center gap-2">
-        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+      <div style={{ zIndex: 10, marginTop: '20px', color: '#64748b', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
         Secure Lead Sync • Eastbourne Network
       </div>
     </main>
