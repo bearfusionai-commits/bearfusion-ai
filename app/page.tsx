@@ -2,26 +2,35 @@ import { Chat } from "@/components/chat";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-950 text-white font-sans">
+    <main className="relative flex min-h-screen flex-col items-center justify-center p-4 overflow-hidden">
       
-      {/* Simple Header */}
+      {/* 1. The Background Image Layer */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop')",
+          filter: "brightness(0.3)" 
+        }}
+      ></div>
+
+      {/* 2. The Header Content */}
       <div className="z-10 w-full max-w-4xl text-center mb-8">
-        <h1 className="text-5xl font-extrabold tracking-tighter uppercase italic">
+        <h1 className="text-5xl font-black tracking-tighter uppercase italic text-white drop-shadow-2xl">
           BearFusion <span className="text-blue-500 not-italic">v1.0</span>
         </h1>
-        <p className="text-slate-500 font-mono text-xs mt-3 tracking-widest uppercase">
+        <p className="text-blue-200/60 font-mono text-xs mt-3 tracking-widest uppercase">
           Enterprise Home Service Intelligence
         </p>
       </div>
       
-      {/* The Chat Box - Solid colors to prevent errors */}
-      <div className="flex flex-col w-full max-w-4xl h-[75vh] border border-slate-800 rounded-3xl shadow-2xl bg-slate-900 p-6 relative overflow-hidden z-10">
+      {/* 3. The Chat Box - Glass Effect */}
+      <div className="flex flex-col w-full max-w-4xl h-[75vh] border border-white/20 rounded-[2.5rem] shadow-2xl bg-slate-900/80 backdrop-blur-md p-6 relative overflow-hidden z-10">
         <Chat />
       </div>
 
-      <div className="mt-8 flex items-center gap-2 text-slate-600 text-[10px] font-mono tracking-widest uppercase">
-        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-        System Online • Eastbourne, UK
+      <div className="z-10 mt-8 flex items-center gap-2 text-slate-400 text-[10px] font-mono tracking-widest uppercase">
+        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        Secure Lead Sync • Eastbourne Network
       </div>
     </main>
   );
