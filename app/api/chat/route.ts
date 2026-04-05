@@ -1,59 +1,30 @@
-import { OpenAI } from 'openai';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { openai } from '@ai-sdk/openai';
+import { streamText } from 'ai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-export const runtime = 'edge';
+export const maxDuration = 30;
 
 export async function POST(req: Request) {
-  try {
-    const { messages } = await req.json();
-    const lastMessage = messages[messages.length - 1].content;
+  const { messages } = await req.json();
 
-    // 1. LEAD CAPTURE LOGIC
-    const phoneRegex = /(\d{10,11})/;
-    if (phoneRegex.test(lastMessage)) {
-      const makeUrl = 'https://hook.eu2.make.com/3xyovacqohu9x7np8fpgsu'; 
-      fetch(makeUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          lead_info: lastMessage, 
-          source: 'BearFusion Expert Bot'
-        }),
-      }).catch(err => console.error("Make Error:", err));
-    }
+  const result = await streamText({
+    model: openai('gpt-4-turbo'),
+    messages,
+    system: `You are the Senior Intake Manager for BearFusion-AI.com, a premier UK-wide trade and home service network specializing in Plumbing, Electrical, Heating, and Renewables.
 
-    // 2. AI RESPONSE WITH KNOWLEDGE BASE
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      stream: true,
-      messages: [
-        {
-        
-         role: 'system',
-          content: `You are BearFusion PRO, a specialized Home Se
-          
-          YOUR PRICE LIST:
-          - Emergency Leak: £120
-          - Faucet/Tap Replacement: £85
-          - Boiler Service: £110
-          - Toilet Unclogging: £95
-          
-          YOUR GOAL:
-          1. Quote prices from the list above.
-          2. If the user mentions a problem, ask for their Name and Phone Number to book a technician.
-          3. Be professional, polite, and helpful.`
-        },
-        ...messages,
-      ],
-    });
+YOUR MISSION: 
+Convert every visitor into a high-quality lead by capturing their specific needs and contact details. We handle EVERYTHING from minor maintenance to major installations and 24/7 emergencies.
 
-    const stream = OpenAIStream(response);
-    return new StreamingTextResponse(stream);
-  } catch (error) {
-    return new Response("Error", { status: 500 });
-  }
+YOUR WORKFLOW:
+1. Identify the Need: Determine if they need Maintenance (repairs), Installation (new work), or an Emergency response.
+2. Get the Location: Ask for their FULL UK POSTCODE. This is essential for routing to the correct regional trade partner.
+3. Get Contact Info: Ask for their Name and Mobile Number.
+4. Professional Tone: Be expert, reassuring, and efficient.
+
+CRITICAL RULES:
+- Never give specific price quotes. Say: "Our specialist engineer for your local area will provide a tailored quote once they review these details."
+- Once you have the Postcode, Name, and Mobile Number, tell them: "Thank you. I have dispatched your request to our lead [Trade] specialist. They will contact you shortly to discuss the next steps."
+- Keep responses concise and focused on gathering the lead data.`,
+  });
+
+  return result.toDataStreamResponse();
 }
