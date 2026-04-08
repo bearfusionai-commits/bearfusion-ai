@@ -5,23 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "@ai-sdk/openai": "3.0.48",
-    "ai": "3.0.0",
-    "lucide-react": "0.344.0",
+    "@ai-sdk/openai": "0.0.9",
+    "ai": "3.0.10",
     "next": "14.1.0",
-    "openai": "4.28.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zod": "3.22.4"
-  },
-  "devDependencies": {
-    "@types/node": "20.11.24",
-    "@types/react": "18.2.61",
-    "@types/react-dom": "18.2.19",
-    "typescript": "5.3.3"
+    "lucide-react": "latest"
   }
 }

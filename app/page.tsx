@@ -3,52 +3,56 @@ import { Chat } from "@/components/chat";
 export default function Home() {
   return (
     <main style={{ 
-      position: 'relative', 
-      minHeight: '100vh', 
+      position: 'fixed', 
+      inset: 0, 
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
       justifyContent: 'center', 
-      padding: '20px', 
       backgroundColor: '#020617',
       fontFamily: 'sans-serif',
       color: 'white'
     }}>
+      {/* PROFESSIONAL BACKGROUND - Clean and High-End */}
       <div style={{
-        position: 'fixed',
+        position: 'absolute',
         inset: 0,
-        zIndex: 0,
-        backgroundImage: "url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        opacity: 0.2
+        opacity: 0.15,
+        zIndex: 0
       }}></div>
 
+      {/* HEADER - Focus on Eastbourne Quality */}
       <div style={{ zIndex: 10, textAlign: 'center', marginBottom: '20px' }}>
-        <h1 style={{ fontSize: '3rem', fontWeight: '900', margin: 0 }}>
+        <h1 style={{ fontSize: '3rem', fontWeight: '900', margin: 0, letterSpacing: '-1px' }}>
           BEARFUSION <span style={{ color: '#3b82f6' }}>AI</span>
         </h1>
-        <p style={{ color: '#93c5fd', letterSpacing: '2px', fontWeight: 'bold' }}>
-          NATIONAL TRADE & HOME SERVICE NETWORK
+        <p style={{ color: '#93c5fd', fontSize: '0.8rem', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '5px' }}>
+          Eastbourne's Premier Trade & Home Network
         </p>
       </div>
       
+      {/* CHAT BOX - Sized for Mobile & Laptop */}
       <div style={{ 
         zIndex: 10, 
-        width: '100%', 
-        maxWidth: '800px', 
+        width: '90%', 
+        maxWidth: '750px', 
         height: '60vh', 
         backgroundColor: 'rgba(15, 23, 42, 0.9)', 
-        borderRadius: '20px', 
+        borderRadius: '32px', 
         border: '1px solid rgba(255,255,255,0.1)', 
         padding: '10px', 
-        overflow: 'hidden' 
+        overflow: 'hidden',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)'
       }}>
         <Chat />
       </div>
 
-      <div style={{ zIndex: 10, marginTop: '20px', fontSize: '0.7rem', opacity: 0.6 }}>
-        ● NETWORK ACTIVE | PLUMBING • ELECTRICAL • RENEWABLES
+      {/* FOOTER */}
+      <div style={{ zIndex: 10, marginTop: '20px', fontSize: '0.7rem', opacity: 0.5, letterSpacing: '2px', textAlign: 'center' }}>
+        PLUMBING • ELECTRICAL • RENEWABLES • HEATING
       </div>
     </main>
   );
